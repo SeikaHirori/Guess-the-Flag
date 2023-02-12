@@ -23,7 +23,7 @@ ______
     - [x] 1. [Guess the Flag: Introduction](https://www.hackingwithswift.com/books/ios-swiftui/guess-the-flag-introduction)
     - [x] 2. [Using stacks to arrange views](https://www.hackingwithswift.com/books/ios-swiftui/using-stacks-to-arrange-views)
     - [x] 3. [Colors and frames] (https://www.hackingwithswift.com/books/ios-swiftui/colors-and-frames)
-    - [ ] 4. [Gradients](https://www.hackingwithswift.com/books/ios-swiftui/gradients)
-            - WIP
+    - [x] 4. [Gradients](https://www.hackingwithswift.com/books/ios-swiftui/gradients)
     - [ ] 5. [Buttons and images](https://www.hackingwithswift.com/books/ios-swiftui/buttons-and-images)
+                - WIP
     - [ ] 6. [Showing alert messages](https://www.hackingwithswift.com/books/ios-swiftui/showing-alert-messages)

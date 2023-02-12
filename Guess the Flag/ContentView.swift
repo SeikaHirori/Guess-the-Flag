@@ -24,7 +24,7 @@ func bodySection1_4() -> some View {
     var body: some View {
         Group {
             ZStack {
-                RadialGradient(gradient: Gradient(colors: [Color.black, Color.indigo]), center: .center, startRadius: 20, endRadius: 200)
+                AngularGradient(gradient: Gradient(colors: [.red, .yellow,.green, .blue, .purple, .cyan]), center: .center)
                 
                 Text("hello :3")
                     .foregroundColor(.pink)
