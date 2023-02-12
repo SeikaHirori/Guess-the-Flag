@@ -10,13 +10,22 @@ import SwiftUI
 struct ContentView: View {
     let defaultSpacing: CGFloat = 30.0
     
-    var body: some View = bodySection1_3()
+    var body: some View = bodySection1_4()
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+func bodySection1_4() -> some View {
+    
+    var body: some View {
+        Text("hello :3")
+    }
+    
+    return body
 }
 
 func bodySection1_3() -> some View {
@@ -36,7 +45,6 @@ func bodySection1_3() -> some View {
         }
         .ignoresSafeArea()
     }
-    
     
     return body
 }
