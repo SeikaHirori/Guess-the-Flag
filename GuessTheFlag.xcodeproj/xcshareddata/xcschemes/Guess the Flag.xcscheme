@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3F9EAC432996FB9A00BE7B38"
-               BuildableName = "Guess the Flag.app"
-               BlueprintName = "Guess the Flag"
-               ReferencedContainer = "container:Guess the Flag.xcodeproj">
+               BuildableName = "GuessTheFlag.app"
+               BlueprintName = "GuessTheFlag"
+               ReferencedContainer = "container:GuessTheFlag.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3F9EAC532996FB9C00BE7B38"
-               BuildableName = "Guess the FlagTests.xctest"
-               BlueprintName = "Guess the FlagTests"
-               ReferencedContainer = "container:Guess the Flag.xcodeproj">
+               BuildableName = "GuessTheFlagTests.xctest"
+               BlueprintName = "GuessTheFlagTests"
+               ReferencedContainer = "container:GuessTheFlag.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,9 +45,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3F9EAC5D2996FB9C00BE7B38"
-               BuildableName = "Guess the FlagUITests.xctest"
-               BlueprintName = "Guess the FlagUITests"
-               ReferencedContainer = "container:Guess the Flag.xcodeproj">
+               BuildableName = "GuessTheFlagUITests.xctest"
+               BlueprintName = "GuessTheFlagUITests"
+               ReferencedContainer = "container:GuessTheFlag.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,9 +67,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3F9EAC432996FB9A00BE7B38"
-            BuildableName = "Guess the Flag.app"
-            BlueprintName = "Guess the Flag"
-            ReferencedContainer = "container:Guess the Flag.xcodeproj">
+            BuildableName = "GuessTheFlag.app"
+            BlueprintName = "GuessTheFlag"
+            ReferencedContainer = "container:GuessTheFlag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3F9EAC432996FB9A00BE7B38"
-            BuildableName = "Guess the Flag.app"
-            BlueprintName = "Guess the Flag"
-            ReferencedContainer = "container:Guess the Flag.xcodeproj">
+            BuildableName = "GuessTheFlag.app"
+            BlueprintName = "GuessTheFlag"
+            ReferencedContainer = "container:GuessTheFlag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
