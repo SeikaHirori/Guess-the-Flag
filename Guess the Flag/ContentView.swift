@@ -24,15 +24,19 @@ func bodySection1_3() -> some View {
     
     var body: some View {
         ZStack {
+            Color(red: 1, green: 20, blue: 0.9)
+                .ignoresSafeArea()
+            
+//            Color.red
+//                .frame(minWidth: 200, maxWidth: .infinity, maxHeight: 200) // max restricts how much a frame should take.
+//            Color.blue
+//                .frame(minWidth: 100, maxWidth: 300, maxHeight: 275)
+//            Color.primary
+//                .frame(minWidth: 50, maxWidth: 50, maxHeight: .infinity)
+//            Color.secondary
+//                .frame(maxWidth: .infinity, maxHeight: 25)
+            
             Text("Your content")
-            Color.red
-                .frame(minWidth: 200, maxWidth: .infinity, maxHeight: 200) // max restricts how much a frame should take.
-            Color.blue
-                .frame(minWidth: 100, maxWidth: 300, maxHeight: 275)
-            Color.primary
-                .frame(minWidth: 50, maxWidth: 50, maxHeight: .infinity)
-            Color.secondary
-                .frame(maxWidth: .infinity, maxHeight: 25)
         }
     }
     return body
