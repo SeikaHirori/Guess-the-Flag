@@ -10,27 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let defaultSpacing: CGFloat = 30.0
     
-    var body: some View = bodySection1_1()
-//    var body: some View {
-//        VStack(spacing: defaultSpacing) {
-//            HStack(spacing: defaultSpacing) {
-//                Text("1")
-//                Text("2")
-//                Text("3")
-//            }
-//            HStack(spacing: defaultSpacing) {
-//                Text("4")
-//                Text("5")
-//                Text("6")
-//            }
-//            HStack(spacing: defaultSpacing) {
-//                Text("7")
-//                Text("8")
-//                Text("9")
-//            }
-//        }
-//    }
-    
+    var body: some View = bodySection1_3()
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -39,7 +19,21 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-func bodySection1_1() -> some View {
+func bodySection1_3() -> some View {
+    
+    
+    var body: some View {
+        ZStack {
+            Text("Your content")
+        }
+        .background(.red)
+    }
+    
+    return body
+}
+
+
+func bodySection1_2() -> some View {
     let defaultSpacing: CGFloat = 30.0
     var body:some View {
         Group {
