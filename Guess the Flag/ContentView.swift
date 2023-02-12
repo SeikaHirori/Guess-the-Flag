@@ -24,11 +24,7 @@ func bodySection1_4() -> some View {
     var body: some View {
         Group {
             ZStack {
-                LinearGradient(gradient: Gradient(stops: [.init(color: .white, location: 0.45),
-                                                          .init(color: .black, location: 0.55)
-                ]),
-                    startPoint: .top,
-                    endPoint: .bottom)
+                RadialGradient(gradient: Gradient(colors: [Color.black, Color.indigo]), center: .center, startRadius: 20, endRadius: 200)
                 
                 Text("hello :3")
                     .foregroundColor(.pink)
