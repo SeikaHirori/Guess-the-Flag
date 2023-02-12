@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0C578C29987B4B007FAAFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F0C578B29987B4B007FAAFE /* README.md */; };
 		3F9EAC482996FB9A00BE7B38 /* Guess_the_FlagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EAC472996FB9A00BE7B38 /* Guess_the_FlagApp.swift */; };
 		3F9EAC4A2996FB9A00BE7B38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EAC492996FB9A00BE7B38 /* ContentView.swift */; };
 		3F9EAC4C2996FB9B00BE7B38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9EAC4B2996FB9B00BE7B38 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F0C578B29987B4B007FAAFE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3F9EAC442996FB9A00BE7B38 /* Guess the Flag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guess the Flag.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9EAC472996FB9A00BE7B38 /* Guess_the_FlagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess_the_FlagApp.swift; sourceTree = "<group>"; };
 		3F9EAC492996FB9A00BE7B38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		3F9EAC3B2996FB9A00BE7B38 = {
 			isa = PBXGroup;
 			children = (
+				3F0C578B29987B4B007FAAFE /* README.md */,
 				3F9EAC462996FB9A00BE7B38 /* Guess the Flag */,
 				3F9EAC572996FB9C00BE7B38 /* Guess the FlagTests */,
 				3F9EAC612996FB9C00BE7B38 /* Guess the FlagUITests */,
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F0C578C29987B4B007FAAFE /* README.md in Resources */,
 				3F9EAC4F2996FB9B00BE7B38 /* Preview Assets.xcassets in Resources */,
 				3F9EAC4C2996FB9B00BE7B38 /* Assets.xcassets in Resources */,
 			);
