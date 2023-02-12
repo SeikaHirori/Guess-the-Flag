@@ -24,9 +24,9 @@ func bodySection1_3() -> some View {
     
     var body: some View {
         ZStack {
+            Color.red
             Text("Your content")
         }
-        .background(.red)
     }
     
     return body
