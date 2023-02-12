@@ -22,9 +22,16 @@ struct ContentView_Previews: PreviewProvider {
 func bodySection1_4() -> some View {
     
     var body: some View {
-        Text("hello :3")
+        Group {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
+                
+                Text("hello :3")
+                    .foregroundColor(.pink)
+                    .background(Color.yellow)
+            }
+        }
     }
-    
     return body
 }
 
