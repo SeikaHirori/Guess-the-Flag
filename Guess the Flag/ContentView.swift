@@ -10,13 +10,24 @@ import SwiftUI
 struct ContentView: View {
     let defaultSpacing: CGFloat = 30.0
     
-    var body: some View = bodySection1_4()
+    var body: some View = bodySection1_5()
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+func bodySection1_5() -> some View {
+    
+    var body: some View {
+        Group {
+            Text("Placeholder for Section 1.5 :3")
+        }
+    }
+    
+    return body
 }
 
 func bodySection1_4() -> some View {
