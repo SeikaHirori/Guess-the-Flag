@@ -25,7 +25,7 @@ func bodySection1_3() -> some View {
     var body: some View {
         ZStack {
             Color.red
-                .frame(width: 200, height: 200)
+                .frame(minWidth: 200, maxWidth: .infinity, maxHeight: 200) // max restricts how much a frame should take.
             Text("Your content")
         }
     }
