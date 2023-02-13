@@ -9,21 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
 
+    @State private var counter: Int = 0
     @State private var showingAlert:Bool = false
     
     var body: some View {
-        
-        Button("Show Alert") {
-            showingAlert = true
-//            print("Show alert: \(showingAlert)")
+        VStack {
+            Text("Counter: \(counter)")
+            
+            Button("Show Alert") {
+                showingAlert = true
+            }
+            .alert("Important message", isPresented: $showingAlert) {
+                Button("Reset") {
+                    counter = 0
+                }
+                Button("Add") {
+                    counter += 1
+                }
+            } message: {
+                Text("Please read this.")
+            }
         }
-        .alert("Important message", isPresented: $showingAlert) {
-            Button("Delete", role: .destructive) {}
-            Button("Cancel", role: .cancel) {}
-        } message: {
-            Text("Please read this.")
-        }
-
     }
 }
 
