@@ -9,11 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var counter: Int = 0
-    @State private var showingAlert:Bool = false
+    var countries:[String] = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
+    var correctAnswer:Int = Int.random(in: 0...2)
     
     var body: some View {
-        Text("hello 3:")
+        VStack(spacing: 30) {
+            VStack {
+                Text("Tap the flag of")
+                Text(countries[correctAnswer])
+            }
+            
+            ForEach(0..<3) { number in
+                Button {
+                    
+                } label: {
+                    Image(countries[number])
+                        .renderingMode(.original)
+                }
+            }
+        }
     }
 }
 
