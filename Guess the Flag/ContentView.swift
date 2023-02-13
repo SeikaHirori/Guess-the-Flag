@@ -33,6 +33,15 @@ func bodySection1_5() -> some View {
                     .tint(.mint)
                 Button("Button 4", role: .destructive) {}
                     .buttonStyle(.borderedProminent)
+                
+                Button {
+                    print("Button was tapped :3")
+                } label: {
+                    Text("Tap me!!! uWu")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.orange)
+                }
             }
         }
     }
