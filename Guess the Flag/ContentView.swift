@@ -20,20 +20,24 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 func bodySection1_5() -> some View {
-    let deletePrint:String = "Now deleting..."
     
     
     var body: some View {
         Group {
             VStack {
-                Button("Delete selection",role: .destructive, action: executeDelete)
+                Button("Button 1") { }
+                    .buttonStyle(.bordered)
+                Button("Button 2", role: .destructive) { }
+                    .buttonStyle(.bordered)
+                Button("Button 3") { }
+                    .buttonStyle(.borderedProminent)
+                Button("Button 4", role: .destructive) {}
+                    .buttonStyle(.borderedProminent)
             }
         }
     }
     
-    func executeDelete() -> Void {
-        print(deletePrint)
-    }
+    
     return body
 }
 
