@@ -16,17 +16,23 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    } 
+    }
 }
 
 func bodySection1_5() -> some View {
+    let deletePrint:String = "Now deleting..."
+    
     
     var body: some View {
         Group {
-            Text("Placeholder for Section 1.5 :3") 
+            Button("Delete selection", action: executeDelete)
         }
+    
     }
     
+    func executeDelete() -> Void {
+        print(deletePrint)
+    }
     return body
 }
 
