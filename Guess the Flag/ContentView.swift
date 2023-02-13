@@ -15,9 +15,12 @@ struct ContentView: View {
         
         Button("Show Alert") {
             showingAlert = true
+//            print("Show alert: \(showingAlert)")
         }
         .alert("Important message", isPresented: $showingAlert) {
-            Button("OK") {}
+            Button("OK") {
+//                print("important message: \(showingAlert) \n")
+            }
         }
 
     }
