@@ -22,6 +22,7 @@ struct ContentView: View {
                     Text("Tap the flag of")
                     Text(countries[correctAnswer])
                 }
+                .foregroundColor(.white)
                 
                 ForEach(0..<3) { number in
                     Button {
