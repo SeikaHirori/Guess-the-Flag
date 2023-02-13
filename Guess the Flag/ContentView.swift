@@ -16,14 +16,14 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
+    } 
 }
 
 func bodySection1_5() -> some View {
     
     var body: some View {
         Group {
-            Text("Placeholder for Section 1.5 :3")
+            Text("Placeholder for Section 1.5 :3") 
         }
     }
     
