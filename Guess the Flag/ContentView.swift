@@ -21,7 +21,6 @@ struct ContentView_Previews: PreviewProvider {
 
 func bodySection1_5() -> some View {
     
-    
     var body: some View {
         Group {
             VStack {
@@ -31,6 +30,7 @@ func bodySection1_5() -> some View {
                     .buttonStyle(.bordered)
                 Button("Button 3") { }
                     .buttonStyle(.borderedProminent)
+                    .tint(.mint)
                 Button("Button 4", role: .destructive) {}
                     .buttonStyle(.borderedProminent)
             }
