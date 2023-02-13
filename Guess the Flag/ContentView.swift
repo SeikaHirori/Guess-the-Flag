@@ -25,9 +25,10 @@ func bodySection1_5() -> some View {
     
     var body: some View {
         Group {
-            Button("Delete selection", action: executeDelete)
+            VStack {
+                Button("Delete selection",role: .destructive, action: executeDelete)
+            }
         }
-    
     }
     
     func executeDelete() -> Void {
@@ -35,6 +36,7 @@ func bodySection1_5() -> some View {
     }
     return body
 }
+
 
 func bodySection1_4() -> some View {
     
@@ -72,7 +74,6 @@ func bodySection1_3() -> some View {
     
     return body
 }
-
 
 func bodySection1_2() -> some View {
     let defaultSpacing: CGFloat = 30.0
