@@ -45,7 +45,7 @@ func bodySection1_5() -> some View {
                 Button {
                     print("Edit button was tapped :O")
                 } label: {
-                    Image(systemName: "pencil")
+                    Label("Edit", systemImage: "pencil")
                 }
             }
         }
