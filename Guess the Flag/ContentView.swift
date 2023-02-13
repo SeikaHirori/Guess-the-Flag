@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    let defaultSpacing: CGFloat = 30.0
+
+    @State private var showingAlert:Bool = false
     
-    var body: some View = bodySection1_5()
+    var body: some View {
+        
+        Button("Show Alert") {
+            showingAlert = true
+        }
+        .alert("Important message", isPresented: $showingAlert) {
+            Button("OK") {}
+        }
+
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -18,6 +28,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
 
 func bodySection1_5() -> some View {
     
@@ -53,7 +65,6 @@ func bodySection1_5() -> some View {
     
     return body
 }
-
 
 func bodySection1_4() -> some View {
     
