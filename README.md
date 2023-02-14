@@ -18,7 +18,7 @@ Project 2 Specifications:
 ______
 - [ ] Part 2: https://www.hackingwithswift.com/100/swiftui/21
     - [x] 1. [Stacking up buttons](https://www.hackingwithswift.com/books/ios-swiftui/stacking-up-buttons)
-    - [ ] 2. [Showing the player’s score with an alert](https://www.hackingwithswift.com/books/ios-swiftui/showing-the-players-score-with-an-alert)
+    - [x] 2. [Showing the player’s score with an alert](https://www.hackingwithswift.com/books/ios-swiftui/showing-the-players-score-with-an-alert)
     - [ ] 3. [Styling our flags](https://www.hackingwithswift.com/books/ios-swiftui/styling-our-flags)
     - [ ] 4. [Upgrading our design](https://www.hackingwithswift.com/books/ios-swiftui/upgrading-our-design)
     
