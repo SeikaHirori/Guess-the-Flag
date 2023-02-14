@@ -90,7 +90,7 @@ struct ContentView: View {
             Text("Your score is: \(correctScore)")
         }
         .alert(resetMessage, isPresented: $showingReset) {
-            Button("Reset", action: resetCounter)
+            Button("Reset", action: resetQuiz)
         } message: {
             Text("\(resetMessage)")
         }
@@ -98,36 +98,33 @@ struct ContentView: View {
     
     func flagTapped(_ number:Int) {
         selectedAnswer = number
-        questionCount += 1
-
+        
+                
         if number == correctAnswer {
-            scoreTitle = "Correct"
+            scoreTitle = "Correct :3"
             correctScore += 1
         } else {
-            scoreTitle = "Wrong. That's \(countries[selectedAnswer])"
+            scoreTitle = "Wrong. That's the flag of \(countries[selectedAnswer])"
         }
         showingScore = true
-        resetQuiz()
     }
     
     func askQuestion() {
         countries.shuffle() // Used wrong function
         correctAnswer = Int.random(in: 0...2)
-    }
-    
-    func resetQuiz() {
-        if questionCount > 8 {
+        if questionCount >= 8 {
+            resetMessage = "Your final score: \(correctScore)"
             showingReset = true
-            let finalScore:Int = correctScore
-            resetMessage = "Your final score: \(finalScore)"
+        } else {
+            questionCount += 1
         }
     }
     
-    func resetCounter(){
+    func resetQuiz() {
         questionCount = 1
         correctScore = 0
     }
-    
+
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
