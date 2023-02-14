@@ -97,7 +97,7 @@ struct ContentView: View {
     }
     
     func askQuestion() {
-        countries.shuffled()
+        countries.shuffle() // Used wrong function
         correctAnswer = Int.random(in: 0...2)
     }
 }
