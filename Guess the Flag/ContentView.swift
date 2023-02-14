@@ -48,6 +48,12 @@ struct ContentView: View {
         }
         showingScore = true
     }
+    
+    func askQuestion() {
+        countries.shuffled()
+        correctAnswer = Int.random(in: 0...2)
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
