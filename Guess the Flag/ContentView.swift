@@ -26,7 +26,15 @@ struct ContentView: View {
             ], center: .top, startRadius: 200, endRadius: 700)
             .ignoresSafeArea()
             
+            
+            
             VStack(spacing: 15) {
+                VStack {
+                    Text("Guess the Flag")
+                        .font(.largeTitle.weight(.bold))
+                        .foregroundColor(.white)
+                }
+                
                 VStack {
                     Text("Tap the flag of")
                         .font(.subheadline.weight(.heavy))
@@ -46,12 +54,18 @@ struct ContentView: View {
                     }
                 }
             }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 20)
+            .background(.regularMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            
         }
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
             Text("Your score is: \(correctScore)")
         }
+        
         
     }
     
