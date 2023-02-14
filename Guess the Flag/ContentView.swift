@@ -11,6 +11,7 @@ struct ContentView: View {
 
     @State private var countries:[String] = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
         .shuffled()
+    
     @State private var correctAnswer:Int = Int.random(in: 0...2)
     
     @State private var showingScore:Bool = false
@@ -18,6 +19,8 @@ struct ContentView: View {
     
     @State var correctScore:Int = 0
     
+    @State var selectedAnswer:Int = 0
+
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -82,11 +85,13 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number:Int) {
+        selectedAnswer = number
+        
         if number == correctAnswer {
             scoreTitle = "Correct"
             correctScore += 1
         } else {
-            scoreTitle = "Wrong"
+            scoreTitle = "Wrong. That's \(countries[selectedAnswer])"
         }
         showingScore = true
     }
