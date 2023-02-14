@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     @State private var countries:[String] = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
         .shuffled()
     
@@ -20,7 +20,12 @@ struct ContentView: View {
     @State var correctScore:Int = 0
     
     @State var selectedAnswer:Int = 0
-
+    
+    @State var questionCount:Int = 1
+    
+    @State var showingReset:Bool = false
+    @State var resetMessage:String = ""
+    
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -33,11 +38,13 @@ struct ContentView: View {
             VStack {
                 VStack {
                     Spacer()
+                    Text("Question #\(questionCount)")
+                        .font(.title.weight(.semibold))
                     Text("Guess the Flag")
                         .font(.largeTitle.bold())
-                        .foregroundColor(.white)
-                    
                 }
+                .foregroundColor(.white)
+                
                 VStack(spacing: 15) {
                     VStack {
                         Text("Tap the flag of")
@@ -82,11 +89,17 @@ struct ContentView: View {
         } message: {
             Text("Your score is: \(correctScore)")
         }
+        .alert(resetMessage, isPresented: $showingReset) {
+            Button("Reset", action: resetCounter)
+        } message: {
+            Text("\(resetMessage)")
+        }
     }
     
     func flagTapped(_ number:Int) {
         selectedAnswer = number
-        
+        questionCount += 1
+
         if number == correctAnswer {
             scoreTitle = "Correct"
             correctScore += 1
@@ -94,16 +107,30 @@ struct ContentView: View {
             scoreTitle = "Wrong. That's \(countries[selectedAnswer])"
         }
         showingScore = true
+        resetQuiz()
     }
     
     func askQuestion() {
         countries.shuffle() // Used wrong function
         correctAnswer = Int.random(in: 0...2)
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    func resetQuiz() {
+        if questionCount > 8 {
+            showingReset = true
+            let finalScore:Int = correctScore
+            resetMessage = "Your final score: \(finalScore)"
+        }
+    }
+    
+    func resetCounter(){
+        questionCount = 1
+        correctScore = 0
+    }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
