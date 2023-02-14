@@ -30,7 +30,7 @@ struct ContentView: View {
                 
                 ForEach(0..<3) { number in
                     Button {
-                        // Flag was tapped 
+                        flagTapped(number)
                     } label: {
                         Image(countries[number])
                             .renderingMode(.original)
@@ -46,6 +46,7 @@ struct ContentView: View {
         } else {
             scoreTitle = "Wrong"
         }
+        showingScore = true
     }
 }
 
