@@ -58,10 +58,11 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .renderingMode(.original)
-                                .clipShape(Capsule())
-                                .shadow(radius: 40)
+//                            Image(countries[number])
+//                                .renderingMode(.original)
+//                                .clipShape(Capsule())
+//                                .shadow(radius: 40)
+                            FlagImage(flag: countries[number]) // RFER #2
                         }
                     }
                     
@@ -124,10 +125,22 @@ struct ContentView: View {
         questionCount = 1
         correctScore = 0
     }
+}
 
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+// RFER #2
+struct FlagImage: View {
+    let flag: String
+
+    var body: some View {
+        Image(flag)
+            .renderingMode(.original)
+            .clipShape(Capsule())
+            .shadow(radius: 40)
     }
 }
