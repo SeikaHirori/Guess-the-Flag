@@ -34,3 +34,12 @@ ______
     - [x] 4. [Gradients](https://www.hackingwithswift.com/books/ios-swiftui/gradients)
     - [x] 5. [Buttons and images](https://www.hackingwithswift.com/books/ios-swiftui/buttons-and-images)
     - [x] 6. [Showing alert messages](https://www.hackingwithswift.com/books/ios-swiftui/showing-alert-messages)
+
+_____
+Project 6 Challenges:
+
+- Part 3 | Challenge: https://www.hackingwithswift.com/100/swiftui/34
+    - [ ] 1. When you tap a flag, make it spin around 360 degrees on the Y axis.
+        - WIP   
+    - [ ] 2. Make the other two buttons fade out to 25% opacity.
+    - [ ] 3. Add a third effect of your choosing to the two flags the user didn’t choose – maybe make them scale down? Or flip in a different direction? Experiment!
