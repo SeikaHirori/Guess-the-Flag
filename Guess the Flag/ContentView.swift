@@ -30,7 +30,8 @@ struct ContentView: View {
     @State private var tappedFlag = 0
     
     var body: some View {
-        print(animationAmount)
+        print("Animation amount: \(animationAmount)")
+        print("Tapped flag: \(tappedFlag) \n")
         
         return ZStack {
             RadialGradient(stops: [
@@ -129,11 +130,17 @@ struct ContentView: View {
         } else {
             questionCount += 1
         }
+        
+        // Reset animation counters
+        animationAmount = 0
+        tappedFlag = -1
     }
     
     func resetQuiz() {
         questionCount = 1
         correctScore = 0
+        tappedFlag = -1
+        animationAmount = 0
     }
 }
 
