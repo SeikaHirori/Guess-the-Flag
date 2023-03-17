@@ -27,8 +27,10 @@ struct ContentView: View {
     @State var resetMessage:String = ""
     
     @State private var animationAmount: Double = 0.0
+    @State private var tappedFlag = 0
     
     var body: some View {
+        print(animationAmount)
         
         return ZStack {
             RadialGradient(stops: [
@@ -58,24 +60,23 @@ struct ContentView: View {
                     }
                     
                     ForEach(0..<3) { number in
-                        Button {
-                            flagTapped(number)
-                            withAnimation {
-                                animationAmount += 360
-                            }
-                        } label: {
-//                            Image(countries[number])
-//                                .renderingMode(.original)
-//                                .clipShape(Capsule())
-//                                .shadow(radius: 40)
-                            FlagImage(flag: countries[number]) // RFER #2
-                        }
-                        .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
-
                         
+                            Button {
+                                flagTapped(number)
+                                tappedFlag = number
+                                
+                                if tappedFlag == number {
+                                    withAnimation {
+                                        animationAmount += 360
+                                    }
+                                    
+                                }
+                            } label: {
+                                FlagImage(flag: countries[number]) // RFER #2
+                            }
+                            .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
+
                     }
-                    
-                    
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
