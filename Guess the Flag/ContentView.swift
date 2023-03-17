@@ -28,6 +28,7 @@ struct ContentView: View {
     
     @State private var animationAmount: Double = 0.0
     @State private var opacityOthers: Double = 1.00
+    @State private var blurAmount: CGFloat = CGFloat.zero
     @State private var tappedFlag:Int = -1
     
     var body: some View {
@@ -59,31 +60,31 @@ struct ContentView: View {
                         Text(countries[correctAnswer])
                             .font(.largeTitle.weight(.semibold))
                     }
-                    
-                    ForEach(0..<3) { number in
-                        /* Psuedocode
-                         ------
-                         House keeping:
-                            -> tappedFlag is a variable, where its default value is -1
-                         
-                         - The selected flag copies its number value to tapped flag.
-                         - If the variable tappedFlag is -1, have all the buttons be neutral (no animation or changes).
-                         - If tappedFlag is the same as the answer, have it spin a full 360.
-                         - Otherwise, have the non-selected flags changed its opacity to 75%.
-                        */
-                        if tappedFlag == -1 {
-                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers)
-                        } else if tappedFlag == number {
-                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers)
+                    VStack {
+                        ForEach(0..<3) { number in
+                            /* Psuedocode
+                             ------
+                             House keeping:
+                             -> tappedFlag is a variable, where its default value is -1
+                             
+                             - The selected flag copies its number value to tapped flag.
+                             - If the variable tappedFlag is -1, have all the buttons be neutral (no animation or changes).
+                             - If tappedFlag is the same as the answer, have it spin a full 360.
+                             - Otherwise, have the non-selected flags changed its opacity to 75%.
+                             */
+                            if tappedFlag == -1 {
+                                flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers, blurAmount: $blurAmount
+                                )
+                            } else if tappedFlag == number {
+                                flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers, blurAmount: $blurAmount)
                                     .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 9, z: 0))
-                        } else {
-                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers)
-                                .opacity(0.25)
-                                .transition(.opacity)
-                            
+                            } else {
+                                flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers, blurAmount: $blurAmount)
+                                    .opacity(0.25)
+                                    .transition(.opacity)
+                                    .blur(radius: blurAmount)
+                            }
                         }
-                        
-                    
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -140,6 +141,7 @@ struct ContentView: View {
         
         animationAmount = 0
         opacityOthers = 1
+        blurAmount = CGFloat.zero
         tappedFlag = -1
     }
     
@@ -177,27 +179,23 @@ struct flag_button: View {
     @Binding var tappedFlag:Int
     @Binding var animationAmount: Double
     @Binding var opacityOthers: Double
+    @Binding var blurAmount: CGFloat
     
     var body: some View {
         Button {
             flagTapped(number)
             tappedFlag = number
             
-            if tappedFlag == number {
-                withAnimation(.easeInOut(duration: 3)) {
-                    animationAmount += 360
-                }
-            } else {
-                withAnimation(.easeInOut(duration: 1)) {
-                    opacityOthers = 1
-                }
-                withAnimation(.easeInOut(duration: 2)) {
-                    opacityOthers = 0.25
-                }
+            withAnimation(.easeInOut(duration: 3)) {
+                animationAmount += 360
+                opacityOthers = 0.20
+                blurAmount = CGFloat(2)
+                
             }
         } label: {
             FlagImage(flag: countries[number]) // RFER #2
         }
+        
     }
 
 }
