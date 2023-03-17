@@ -27,7 +27,7 @@ struct ContentView: View {
     @State var resetMessage:String = ""
     
     @State private var animationAmount: Double = 0.0
-    @State private var tappedFlag:Int = 0
+    @State private var tappedFlag:Int = -1
     
     var body: some View {
         print(animationAmount)
@@ -72,9 +72,10 @@ struct ContentView: View {
                         */
                         if tappedFlag == -1 {
                             flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
-                        } else if tappedFlag == correctAnswer {
+                        } else if tappedFlag == number {
                             flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
-                            .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
+                            .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 9, z: 0))
+                            .animation(.easeOut(duration: 2))
                         } else {
                             flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
                             .opacity(0.3)
