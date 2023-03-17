@@ -60,18 +60,19 @@ struct ContentView: View {
                     }
                     
                     ForEach(0..<3) { number in
-                        Button {
-                            flagTapped(number)
-                            tappedFlag = number
-                            
-                            if tappedFlag == number {
-                                withAnimation {
-                                    animationAmount += 360
-                                }
-                            }
-                        } label: {
-                            FlagImage(flag: countries[number]) // RFER #2
-                        }
+//                        Button {
+//                            flagTapped(number)
+//                            tappedFlag = number
+//
+//                            if tappedFlag == number {
+//                                withAnimation {
+//                                    animationAmount += 360
+//                                }
+//                            }
+//                        } label: {
+//                            FlagImage(flag: countries[number]) // RFER #2
+//                        }
+                        flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
                         .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
                     }
                 }
@@ -129,8 +130,10 @@ struct ContentView: View {
     }
     
     func resetQuiz() {
-        questionCount = 1
+        // Reset scores to zero first, then call function askQuestion() to give new questions.
+        questionCount = 0
         correctScore = 0
+        askQuestion()
     }
 }
 
