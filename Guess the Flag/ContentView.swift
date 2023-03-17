@@ -60,20 +60,27 @@ struct ContentView: View {
                     }
                     
                     ForEach(0..<3) { number in
-//                        Button {
-//                            flagTapped(number)
-//                            tappedFlag = number
-//
-//                            if tappedFlag == number {
-//                                withAnimation {
-//                                    animationAmount += 360
-//                                }
-//                            }
-//                        } label: {
-//                            FlagImage(flag: countries[number]) // RFER #2
-//                        }
-                        flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
-                        .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
+                        /* Psuedocode
+                         ------
+                         House keeping:
+                            -> tappedFlag is a variable, where its default value is -1
+                         
+                         - The selected flag copies its number value to tapped flag.
+                         - If the variable tappedFlag is -1, have all the buttons be neutral (no animation or changes).
+                         - If tappedFlag is the same as the answer, have it spin a full 360.
+                         - Otherwise, have the non-selected flags changed its opacity to 75%.
+                        */
+                        if tappedFlag == -1 {
+                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
+                        } else if tappedFlag == correctAnswer {
+                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
+                            .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
+                        } else {
+                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
+                            .opacity(0.3)
+                        }
+                        
+                    
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -127,6 +134,9 @@ struct ContentView: View {
         } else {
             questionCount += 1
         }
+        
+        animationAmount = 0
+        tappedFlag = -1
     }
     
     func resetQuiz() {
