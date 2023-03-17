@@ -47,4 +47,4 @@ Project 6 Challenges:
     - [x] 2. Make the other two buttons fade out to 25% opacity.
         - BUG:
             - Animation timing is tied to animation from flag spinning
-    - [ ] 3. Add a third effect of your choosing to the two flags the user didn’t choose – maybe make them scale down? Or flip in a different direction? Experiment!
+    - [x] 3. Add a third effect of your choosing to the two flags the user didn’t choose – maybe make them scale down? Or flip in a different direction? Experiment!

@@ -83,6 +83,7 @@ struct ContentView: View {
                                     .opacity(0.25)
                                     .transition(.opacity)
                                     .blur(radius: blurAmount)
+                                    .rotation3DEffect(.degrees(animationAmount), axis: (x:20, y:0, z:200))
                             }
                         }
                     }
