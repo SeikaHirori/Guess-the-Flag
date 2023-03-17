@@ -27,6 +27,7 @@ struct ContentView: View {
     @State var resetMessage:String = ""
     
     @State private var animationAmount: Double = 0.0
+    @State private var opacityOthers: Double = 1.00
     @State private var tappedFlag:Int = -1
     
     var body: some View {
@@ -71,14 +72,15 @@ struct ContentView: View {
                          - Otherwise, have the non-selected flags changed its opacity to 75%.
                         */
                         if tappedFlag == -1 {
-                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
+                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers)
                         } else if tappedFlag == number {
-                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
-                            .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 9, z: 0))
-                            .animation(.easeOut(duration: 2))
+                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers)
+                                    .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 9, z: 0))
                         } else {
-                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount)
-                            .opacity(0.3)
+                            flag_button(number: number, countries: countries, flagTapped: flagTapped(_:), tappedFlag: $tappedFlag, animationAmount: $animationAmount, opacityOthers: $opacityOthers)
+                                .opacity(0.25)
+                                .transition(.opacity)
+                            
                         }
                         
                     
@@ -137,6 +139,7 @@ struct ContentView: View {
         }
         
         animationAmount = 0
+        opacityOthers = 1
         tappedFlag = -1
     }
     
@@ -173,7 +176,7 @@ struct flag_button: View {
     
     @Binding var tappedFlag:Int
     @Binding var animationAmount: Double
-    
+    @Binding var opacityOthers: Double
     
     var body: some View {
         Button {
@@ -181,8 +184,15 @@ struct flag_button: View {
             tappedFlag = number
             
             if tappedFlag == number {
-                withAnimation {
+                withAnimation(.easeInOut(duration: 3)) {
                     animationAmount += 360
+                }
+            } else {
+                withAnimation(.easeInOut(duration: 1)) {
+                    opacityOthers = 1
+                }
+                withAnimation(.easeInOut(duration: 2)) {
+                    opacityOthers = 0.25
                 }
             }
         } label: {

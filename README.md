@@ -39,8 +39,12 @@ _____
 Project 6 Challenges:
 
 - Part 3 | Challenge: https://www.hackingwithswift.com/100/swiftui/34
-    - [ ] 1. When you tap a flag, make it spin around 360 degrees on the Y axis.
+    - [x] 1. When you tap a flag, make it spin around 360 degrees on the Y axis.
         - Commit: a8ca4f2926db3327e759bf570b14d1a5eea01729   
-            - Bug: all flags are spinning right now.
-    - [ ] 2. Make the other two buttons fade out to 25% opacity.
+            - [x] Bug: all flags are spinning right now.
+        - Commit: 191f5d55f4e214789e0a94588652a4da1916039e
+            - Feature works
+    - [x] 2. Make the other two buttons fade out to 25% opacity.
+        - BUG:
+            - Animation timing is tied to animation from flag spinning
     - [ ] 3. Add a third effect of your choosing to the two flags the user didn’t choose – maybe make them scale down? Or flip in a different direction? Experiment!
