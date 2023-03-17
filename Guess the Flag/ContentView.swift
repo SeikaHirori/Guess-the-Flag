@@ -26,8 +26,11 @@ struct ContentView: View {
     @State var showingReset:Bool = false
     @State var resetMessage:String = ""
     
+    @State private var animationAmount: Double = 0.0
+    
     var body: some View {
-        ZStack {
+        
+        return ZStack {
             RadialGradient(stops: [
                 .init(color: Color(red: 0.1, green: 0.2, blue: 0.3), location: 0.3),
                 .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3)
@@ -57,6 +60,9 @@ struct ContentView: View {
                     ForEach(0..<3) { number in
                         Button {
                             flagTapped(number)
+                            withAnimation {
+                                animationAmount += 360
+                            }
                         } label: {
 //                            Image(countries[number])
 //                                .renderingMode(.original)
@@ -64,6 +70,9 @@ struct ContentView: View {
 //                                .shadow(radius: 40)
                             FlagImage(flag: countries[number]) // RFER #2
                         }
+                        .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
+
+                        
                     }
                     
                     
