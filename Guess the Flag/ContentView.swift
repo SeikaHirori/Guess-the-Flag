@@ -27,11 +27,10 @@ struct ContentView: View {
     @State var resetMessage:String = ""
     
     @State private var animationAmount: Double = 0.0
-    @State private var tappedFlag = 0
+    @State private var tappedFlag:Int = 0
     
     var body: some View {
-        print("Animation amount: \(animationAmount)")
-        print("Tapped flag: \(tappedFlag) \n")
+        print(animationAmount)
         
         return ZStack {
             RadialGradient(stops: [
@@ -61,22 +60,19 @@ struct ContentView: View {
                     }
                     
                     ForEach(0..<3) { number in
-                        
-                            Button {
-                                flagTapped(number)
-                                tappedFlag = number
-                                
-                                if tappedFlag == number {
-                                    withAnimation {
-                                        animationAmount += 360
-                                    }
-                                    
+                        Button {
+                            flagTapped(number)
+                            tappedFlag = number
+                            
+                            if tappedFlag == number {
+                                withAnimation {
+                                    animationAmount += 360
                                 }
-                            } label: {
-                                FlagImage(flag: countries[number]) // RFER #2
                             }
-                            .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
-
+                        } label: {
+                            FlagImage(flag: countries[number]) // RFER #2
+                        }
+                        .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 2, z: 0))
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -130,17 +126,11 @@ struct ContentView: View {
         } else {
             questionCount += 1
         }
-        
-        // Reset animation counters
-        animationAmount = 0
-        tappedFlag = -1
     }
     
     func resetQuiz() {
         questionCount = 1
         correctScore = 0
-        tappedFlag = -1
-        animationAmount = 0
     }
 }
 
@@ -160,4 +150,30 @@ struct FlagImage: View {
             .clipShape(Capsule())
             .shadow(radius: 40)
     }
+}
+
+struct flag_button: View {
+    var number: Int
+    var countries: [String]
+    var flagTapped: (Int) -> ()
+    
+    @Binding var tappedFlag:Int
+    @Binding var animationAmount: Double
+    
+    
+    var body: some View {
+        Button {
+            flagTapped(number)
+            tappedFlag = number
+            
+            if tappedFlag == number {
+                withAnimation {
+                    animationAmount += 360
+                }
+            }
+        } label: {
+            FlagImage(flag: countries[number]) // RFER #2
+        }
+    }
+
 }
